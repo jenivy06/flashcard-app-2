@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Flashcard = sequelize.define("Flashcard", {
-    text: {
+    textQuestion: {
       type: DataTypes.STRING,
       // AllowNull is a flag that restricts a flashcard text from being entered if it doesn't
       // have a text value

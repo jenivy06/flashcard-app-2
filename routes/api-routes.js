@@ -27,7 +27,7 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     db.Flashcard.create({
-      text: req.body.text,
+      textQuestion: req.body.textQuestion,
       complete: req.body.complete
     }).then(function(dbFlashcard) {
       // We have access to the new todo as an argument inside of the callback function
@@ -60,7 +60,7 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.Flashcard.update({
-      text: req.body.text,
+      textQuestion: req.body.textQuestion,
       complete: req.body.complete
     }, {
       where: {

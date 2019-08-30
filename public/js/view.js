@@ -49,7 +49,7 @@ $(document).ready(function() {
   function editFlashcard() {
     var currentFlashcard = $(this).data("flashcard");
     $(this).children().hide();
-    $(this).children("input.edit").val(currentFlashcard.text);
+    $(this).children("input.edit").val(currentFlashcard.textQuestion);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
   }
@@ -67,7 +67,7 @@ $(document).ready(function() {
   function finishEdit(event) {
     var updatedFlashcard= $(this).data("flashcard");
     if (event.which === 13) {
-      updatedFlashcard.text = $(this).children("input").val().trim();
+      updatedFlashcard.textQuestion = $(this).children("input").val().trim();
       $(this).blur();
       updateFlashcard(updatedFlashcard);
     }
@@ -88,7 +88,7 @@ $(document).ready(function() {
     var currentFlashcard = $(this).data("flashcard");
     if (currentFlashcard) {
       $(this).children().hide();
-      $(this).children("input.edit").val(currentFlashcard.text);
+      $(this).children("input.edit").val(currentFlashcard.textQuestion);
       $(this).children("span").show();
       $(this).children("button").show();
     }
@@ -100,7 +100,7 @@ $(document).ready(function() {
       [
         "<li class='list-group-item flashcard-item'>",
         "<span>",
-        flashcard.text,
+        flashcard.textQuestion,
         "</span>",
         "<input type='text' class='edit' style='display: none;'>",
         "<button class='delete btn btn-danger'>x</button>",
@@ -122,7 +122,7 @@ $(document).ready(function() {
   function insertFlashcard(event) {
     event.preventDefault();
     var flashcard = {
-      text: $newItemInput.val().trim(),
+      textQuestion: $newItemInput.val().trim(),
       complete: false
     };
 
